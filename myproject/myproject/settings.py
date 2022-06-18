@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
-from .my_settings import MY_SECRET_KEY, MY_DATABASES
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -22,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = MY_SECRET_KEY
+SECRET_KEY ='django-insecure-9%fy(*bggoqxp2gdrir))j#v%u*lx*x_4yood%sh464=43xnv7'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -105,7 +104,25 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = MY_DATABASES
+DATABASES = {
+    'default' : {
+        'ENGINE': 'django.db.backends.mysql',    
+        'NAME': 'gym_db',                  
+        'USER': 'admin',                          
+        'PASSWORD': 'hrj9100!',                 
+        'HOST': 'myabpdbcluster.cluster-cqyvmre1e7tk.us-east-1.rds.amazonaws.com',                     
+        'PORT': '3306',        
+        'OPTIONS': {'charset': 'utf8mb4'},                
+    }
+}
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 
 
 # Password validation
@@ -148,3 +165,5 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+

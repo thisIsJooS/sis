@@ -1,16 +1,16 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from datetime import datetime
 import csv
 import os
 
 
 def home(request):
-    return render(request, 'index.html')
+    return redirect('https://d1lrj6wbfx1cf6.cloudfront.net')
 
 
 def formdata(request):
     if request.method == 'POST':
-        f = open(f'{os.path.dirname(__file__)}/../myproject/data/data.csv', 'a', newline='')
+        f = open(f'{os.path.dirname(__file__)}/../../data/data.csv', 'a', newline='')
         wr = csv.writer(f)
         clientID = request.POST['clientID']
         center = request.POST['center']
